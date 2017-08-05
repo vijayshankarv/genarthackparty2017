@@ -11,7 +11,7 @@ uniform float u_time;
 
 vec3 ptRep( vec3 pt)
 {
- 	vec3 c = vec3(sin(0.3*u_time/300.), 0.0,0.);
+ 	vec3 c = vec3(sin(1000. + 0.3*u_time/300.), 0.0,0.);
     vec3 c1 = vec3(0.166, cos(u_time/10.),0.0);
     vec3 q = mod(pt, c)-0.5*c1;
     return q;
@@ -122,13 +122,13 @@ void main() {
             
             vec3 intersectionNormal = calculateNormal(rayOrigin + 
                                                       rayDirection * photonPosition);
-            float red = intersectionNormal.x * 0.5 + 0.5; //ranges from 0 to 1
+            float red = intersectionNormal.x * 0.5 + 0.1; //ranges from 0 to 1
             float green = intersectionNormal.y * 0.3 + 0.2 ; 
-            gl_FragColor = vec4(red,green,0.400,1.000);
+            gl_FragColor = vec4(red,green,red,1.000);
             
         }
         else {
-            gl_FragColor = vec4(-0.018,0.230,0.143,0.1);
+            gl_FragColor = vec4(-0.018,0.2,0.2,0.2);
         }
     
 }
